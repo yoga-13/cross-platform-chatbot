@@ -15,7 +15,7 @@
 on:
   push:
     branches:
-    - main
+    - master
 
 env:
   AZURE_WEBAPP_NAME: innovation-chat-line    # set this to your application's name
