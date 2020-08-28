@@ -20,6 +20,10 @@ app.prepare().then(() => {
   server.use(bodyParser.json({ verify }));
   server.use(bodyParser.urlencoded({ extended: false, verify }));
 
+  server.get('/', (req, res) => {
+    res.json({ ok: true });
+  });
+
   // route for webhook request
   server.all('*', (req, res) => {
     return handle(req, res);
