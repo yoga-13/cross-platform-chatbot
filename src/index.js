@@ -1,4 +1,4 @@
-const { router, line, messenger } = require('bottender/router');
+const { router, text, line, messenger } = require('bottender/router');
 const handler = require('./handler')
 
 exports.App = () => {

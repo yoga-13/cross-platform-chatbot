@@ -1,5 +1,4 @@
 const Message = require('./Message')
-const {Line} = require('messaging-api-line')
 
 module.exports = class KKBOXMessage extends Message {
     constructor(data, dataType) {
@@ -8,19 +7,17 @@ module.exports = class KKBOXMessage extends Message {
     }
 
     toLineMessage() {
-        const columns = this.data.map(el => {
+        const template = this.data.slice(0, 10).map(el => {
             return {
-                thumbnailImageUrl: el.images === undefined ? el.album.images[1].url : el.images[1].url,
-                title: el.name === undefined ? el.title.slice(0, 40) : el.name.slice(0, 40),
-                text: el.description === undefined || el.description === '' ? ' ' : el.description.slice(0, 60),
-                actions: [{
+                imageUrl: el.album.images[1].url,
+                action: {
                     type: 'uri',
-                    label: 'Open in KKBOX',
-                    uri: this.dataType === 'artist' ? el.url : `https://widget.kkbox.com/v1/?id=${el.id}&type=${this.dataType === 'track' ? 'song' : this.dataType}`
-                }]
+                    label: `${el.name}`.slice(0, 12),
+                    uri: `https://widget.kkbox.com/v1/?id=${el.id}&type=song&terr=TW&lang=TW`
+                }
             }
-        }).slice(0, 10)
-        return Line.createCarouselTemplate('為您播放', columns, {imageAspectRatio: 'square', imageSize: 'cover'})
+        });
+        return { altText: '試聽30秒', template };
     }
 
     toMessengerMessage() {
