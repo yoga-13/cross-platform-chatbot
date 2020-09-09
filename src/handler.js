@@ -6,10 +6,21 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://goo.gl/YWhP2L 開源程式碼
     '您可以問我\n' +
     '音樂：「播放告白氣球」；「播放自傳專輯的歌」；「播放動漫歌曲類型的歌」\n';
 
+kkbox.initToken();
+kkassistant.initToken();
+
 exports.HandleLineMessage = async context => {
     if (context.event.isText) {
         kkassistant.nlu(context.event.text, context.session.id)
-            .then(nluResp => kkbox.fetchTracks(nluResp.directives[0].playlist.data))
+            .then(nluResp => {
+                if (nluResp.directives.length != 0) {
+                    return kkbox.fetchTracks(nluResp.directives[0].playlist.data)
+                }
+                else {
+                    context.sendText(nluResp.outputSpeech.text);
+                    throw new Error('KKBOX Assistant NLP Error');
+                }
+            })
             .then(tracks => new KKBOXMessage(tracks).toLineMessage())
             .then(({ altText, template }) => context.sendImageCarouselTemplate(altText, template))
             .catch(error => {
