@@ -2,9 +2,13 @@ const config = require('../../config');
 const axios = require("axios");
 
 class KKAssistant {
-    constructor(token = config.kkbox.token) {
+    constructor() {
         this.URL = 'https://nlu.assistant.kkbox.com';
-        this.token = token;
+    }
+
+    async initToken() {
+        const kkbox = require('../api/KKBOX');
+        this.token = await kkbox.getTokenFromDatastore().then(token => token.access_token);
     }
 
     nlu(text, userId) {
@@ -26,13 +30,11 @@ class KKAssistant {
             }
         };
 
-        return axios.post(this.URL, body, {
-            headers: { 'content-type': 'application/json' },
-        })
-        .then(response => response.data.response)
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        return axios.post(this.URL, body)
+            .then(response => response.data.response)
+            .catch(error => {
+                console.error('Error:', error);
+            });
     }
 }
 

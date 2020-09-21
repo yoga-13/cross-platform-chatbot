@@ -1,0 +1,4 @@
+cron:
+- url: /token/refresh
+  schedule: every sunday 00:00
+  timezone: Asia/Taipei
