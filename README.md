@@ -1,9 +1,25 @@
 # Cross-platform Chatbot
-This repository is a workshop material. 
-<br/>
-If you are a participant, you must complete the [workshop_preparation.md](https://github.com/zaoldyeck/cross-platform-chatbot/blob/master/workshop_preparation.md) before the event begins.
-<br/>
-Details on how this program is implemented are described in this [slide](https://slides.com/zaoldyeck/chatbot-workshop).
+Follow us on Line **Innovation Chatbot** (id: @qdr2400b)
+
+## KKBOX Open API
+[KKBOX for developers](https://developer.kkbox.com/)
+
+[API Docs](https://docs-en.kkbox.codes/)
+
+## Manually deploy to GAE
+`gcloud app deploy app.yaml`
+
+`gcloud app deploy cron.yaml`
+
+### Environment variable
+`LINE_ACCESS_TOKEN`, `LINE_CHANNEL_SECRET`
+
+`KKBOX_APP_ID`, `KKBOX_APP_SECRET`
+
+`DATASTORE_ENTITY_KIND`, `DATASTORE_ENTITY_ID`
+
+### Datastore
+![GAE datastore entity](https://i.imgur.com/NBBlsp9.jpg)
 
 ## License
 
