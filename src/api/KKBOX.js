@@ -60,6 +60,16 @@ class KKBOX {
         };
     }
 
+    setTokenToDatastore(token) {
+        const setting = {
+            KKBOX_ACCESS_TOKEN: token.access_token,
+            KKBOX_REFRESH_TOKEN: token.refresh_token,
+            KKBOX_TOKEN_EXPIRE: token.expire_date,
+        };
+
+        return datastore.update({ key: this.datastoreKey, data: setting }).then((apiResponse) => apiResponse);
+    }
+
     refreshToken(token) {
         const tokenExpireToDate = (token) => {
             token.expire_date = new Date(new Date().getTime() + token.expires_in * 1000);
@@ -83,16 +93,6 @@ class KKBOX {
             .catch(error => {
                 console.error('Error:', error);
             });
-    }
-
-    setTokenToDatastore(token) {
-        const setting = {
-            KKBOX_ACCESS_TOKEN: token.access_token,
-            KKBOX_REFRESH_TOKEN: token.refresh_token,
-            KKBOX_TOKEN_EXPIRE: token.expire_date,
-        };
-
-        return datastore.update({ key: this.datastoreKey, data: setting }).then((apiResponse) => apiResponse);
     }
 }
 
