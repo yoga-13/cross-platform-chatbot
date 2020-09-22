@@ -10,15 +10,23 @@ class KKBOX {
         this.id = config.kkbox.id;
         this.secret = config.kkbox.secret;
 
-        this.datastoreKey = datastore.key([config.datastore.kind, datastore.int(config.datastore.id)]);
+        if(config.kkbox.token == undefined) {
+            this.datastoreKey = datastore.key([config.datastore.kind, datastore.int(config.datastore.id)]);
+        }
     }
 
     async initToken() {
-        this.access_token = await this.getTokenFromDatastore()
-            .then(token => token.access_token)
-            .catch(error => {
-                console.error('Error:', error)
-            });
+        if(config.kkbox.token == undefined) {
+            console.log("GCP Mode");
+            this.access_token = await this.getTokenFromDatastore()
+                .then(token => token.access_token)
+                .catch(error => {
+                    console.error('Error:', error)
+                });
+        } else {
+            console.log("Heroku Mode");
+            this.access_token = config.kkbox.token;
+        }
     }
 
     getApi() {
