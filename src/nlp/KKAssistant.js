@@ -8,7 +8,13 @@ class KKAssistant {
 
     async initToken() {
         const kkbox = require('../api/KKBOX');
-        this.token = await kkbox.getTokenFromDatastore().then(token => token.access_token);
+        if(config.kkbox.token == undefined) {
+            console.log("GCP Mode");
+            this.token = await kkbox.getTokenFromDatastore().then(token => token.access_token);
+        } else {
+            console.log("Heroku Mode");
+            this.token = config.kkbox.token;
+        }
     }
 
     nlu(text, userId) {
