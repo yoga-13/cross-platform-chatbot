@@ -6,6 +6,8 @@ Follow us on Line **Innovation Chatbot** (id: @qdr2400b)
 
 [API Docs](https://docs-en.kkbox.codes/)
 
+[KKAssistant Docs](https://docs-zhtw.kkbox.codes/lab/)
+
 ## Manually deploy to GAE
 `gcloud app deploy app.yaml`
 
@@ -16,9 +18,13 @@ Follow us on Line **Innovation Chatbot** (id: @qdr2400b)
 
 `KKBOX_APP_ID`, `KKBOX_APP_SECRET`
 
-`DATASTORE_ENTITY_KIND`, `DATASTORE_ENTITY_ID`
+#### Access token
+- Deploy to Heroku
+    - `KKBOX_TOKEN`
+- Deploy to GAE
+    - `DATASTORE_ENTITY_KIND`, `DATASTORE_ENTITY_ID`
 
-### Datastore
+### Datastore entity
 ![GAE datastore entity](https://i.imgur.com/NBBlsp9.jpg)
 
 ## License
