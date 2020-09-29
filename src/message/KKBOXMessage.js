@@ -7,17 +7,43 @@ module.exports = class KKBOXMessage extends Message {
     }
 
     toLineMessage() {
-        const template = this.data.slice(0, 10).map(el => {
-            return {
-                imageUrl: el.album.images[1].url,
-                action: {
-                    type: 'uri',
-                    label: `${el.name}`.slice(0, 12),
-                    uri: `https://widget.kkbox.com/v1/?id=${el.id}&type=song&terr=TW&lang=TW`
+        if (this.data.type == 'Event.Metadata') {
+            let template = this.data.events.slice(0, 10).map(el => {
+                return {
+                    imageUrl: 'https://i.kfs.io/muser/global/131527099v9/cropresize/600x600.jpg',
+                    action: {
+                        type: 'uri',
+                        label: `${el.title}`.slice(0, 12),
+                        uri: `${el.url}`
+                    }
                 }
-            }
-        });
-        return { altText: '試聽30秒', template };
+            });
+            return { altText: '音樂活動資訊', template };
+        } else if(this.data.type == 'Video.Metadata') {
+            let template = this.data.videos.slice(0, 10).map(el => {
+                return {
+                    imageUrl: el.cover,
+                    action: {
+                        type: 'uri',
+                        label: `${el.title}`.slice(0, 12),
+                        uri: `${el.url}`
+                    }
+                }
+            });
+            return { altText: 'KKTV影片資訊', template };
+        } else {  // AudioPlayer.Play
+            let template = this.data.slice(0, 10).map(el => {
+                return {
+                    imageUrl: el.album.images[1].url,
+                    action: {
+                        type: 'uri',
+                        label: `${el.name}`.slice(0, 12),
+                        uri: `https://widget.kkbox.com/v1/?id=${el.id}&type=song&terr=TW&lang=TW`
+                    }
+                }
+            });
+            return { altText: '試聽30秒', template };
+        }
     }
 
     toMessengerMessage() {
