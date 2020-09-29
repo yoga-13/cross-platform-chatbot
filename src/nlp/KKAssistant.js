@@ -7,7 +7,8 @@ class KKAssistant {
     }
 
     async initToken() {
-        const kkbox = require('../api/KKBOX');
+        const kkbox = global.kkbox;
+
         if(config.kkbox.token == undefined) {
             console.log("GCP Mode");
             this.token = await kkbox.getTokenFromDatastore().then(token => token.access_token);
