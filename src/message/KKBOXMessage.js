@@ -9,24 +9,26 @@ module.exports = class KKBOXMessage extends Message {
     toLineMessage() {
         if (this.data.type == 'Event.Metadata') {
             let template = this.data.events.slice(0, 10).map(el => {
+                var url = encodeURI(el.url);
                 return {
                     imageUrl: 'https://i.kfs.io/muser/global/131527099v9/cropresize/600x600.jpg',
                     action: {
                         type: 'uri',
+                        uri: (el.url == '') ? 'https://kktix.com/' : `${url}`,
                         label: `${el.title}`.slice(0, 12),
-                        uri: `${el.url}`
                     }
                 }
             });
             return { altText: '音樂活動資訊', template };
         } else if(this.data.type == 'Video.Metadata') {
             let template = this.data.videos.slice(0, 10).map(el => {
+                var url = encodeURI(el.url);
                 return {
                     imageUrl: el.cover,
                     action: {
                         type: 'uri',
+                        uri: `${url}`,
                         label: `${el.title}`.slice(0, 12),
-                        uri: `${el.url}`
                     }
                 }
             });
