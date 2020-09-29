@@ -1,4 +1,4 @@
-const kkbox = require('./api/KKBOX');
+const kkbox = global.kkbox;
 const kkassistant = require('./nlp/KKAssistant');
 const KKBOXMessage = require('./message/KKBOXMessage');
 

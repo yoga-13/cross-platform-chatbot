@@ -1,7 +1,10 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const { bottender } = require('bottender');
-const kkbox = require('./src/api/KKBOX');
+global = {
+    kkbox: require('./src/api/KKBOX')
+};
+const kkbox = global.kkbox;
 
 const app = bottender({
     dev: process.env.NODE_ENV !== 'production',
