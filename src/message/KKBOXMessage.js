@@ -44,7 +44,7 @@ module.exports = class KKBOXMessage extends Message {
                     }
                 }
             });
-            return { altText: '試聽30秒', template };
+            return { altText: '不付費只能聽30秒', template };
         }
     }
 
