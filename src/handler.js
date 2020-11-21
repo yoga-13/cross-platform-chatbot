@@ -7,9 +7,10 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
     '音樂：「播放告白氣球」；「播放自傳專輯的歌」；「我要聽鄉村音樂」；「我要聽日文新歌」\n' + 
     '音樂活動：「查詢高雄的活動」；「查詢吳卓源的演場會」；「查詢兩廳院的表演」\n' +
     '影音內容：「查詢影片進擊的巨人」；「查詢日劇半澤直樹」\n' +
-    '輸入help出現幫助\n'+
-    '輸入rank出現排名\n';
-
+    '輸入help出現幫助\n';
+const Message = 'https://kma.kkbox.com/charts/?terr=tw&lang=tc \n';
+const Message1 = '輸入help出現幫助\n'+
+                 '輸入rank出現排名\n';
 
 exports.HandleLineMessage = async context => {
     if (context.event.isText) {
@@ -35,6 +36,25 @@ exports.HandleLineMessage = async context => {
             });
     }
 }
+
+
+
+exports.HandleFollow1 = async context => {
+    await context.sendText(Message);
+}
+
+exports.HandleFollow2 = async context => {
+    await context.sendText(Message1);
+}
+
+
+
+
+
+
+
+
+
 
 exports.HandleFollow = async context => {
     await context.sendText(welcomeMessage);

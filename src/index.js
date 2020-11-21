@@ -1,10 +1,10 @@
 const { router, text, line, messenger } = require('bottender/router');
 const handler = require('./handler')
-const Rank = require('./±Æ¦W')
 exports.App = () => {
     return router([
-        text(/^(hi|hello|help)$/i, handler.HandleFollow),
-        text(/^(Rank|rank)$/i, Rank.HandleFollow),
+        text(/^(hi|hello)$/i, handler.HandleFollow),
+        text(/^(Rank|rank)$/i, handler.HandleFollow1),
+        text(/^(help|Help)$/i, handler.HandleFollow2),
 
         line.message(handler.HandleLineMessage),
         line.follow(handler.HandleFollow),
