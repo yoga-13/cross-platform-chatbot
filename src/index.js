@@ -3,8 +3,8 @@ const handler = require('./handler')
 exports.App = () => {
     return router([
         text(/^(hi|hello)$/i, handler.HandleFollow),
-        text(/^('±Æ¦W')$/i, handler.rank),
-        text(/^('À°§U')$/i, handler.help),
+        text(/^(rank)$/i, handler.rank),
+        text(/^(help)$/i, handler.help),
 
         line.message(handler.HandleLineMessage),
         line.follow(handler.HandleFollow),
