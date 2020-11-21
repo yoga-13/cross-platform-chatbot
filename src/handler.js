@@ -8,9 +8,9 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
     '音樂活動：「查詢高雄的活動」；「查詢吳卓源的演場會」；「查詢兩廳院的表演」\n' +
     '影音內容：「查詢影片進擊的巨人」；「查詢日劇半澤直樹」\n' +
     '輸入help出現幫助\n';
-const Message = 'https://kma.kkbox.com/charts/?terr=tw&lang=tc \n';
-const Message1 = '輸入help出現幫助\n'+
-                 '輸入rank出現排名\n';
+const RankMessage = 'https://kma.kkbox.com/charts/?terr=tw&lang=tc ';
+const HelpMessage = '輸入幫助展現幫助\n'+
+                    '輸入排名展現排名';
 
 exports.HandleLineMessage = async context => {
     if (context.event.isText) {
@@ -39,12 +39,12 @@ exports.HandleLineMessage = async context => {
 
 
 
-exports.HandleFollow1 = async context => {
-    await context.sendText(Message);
+exports.rank = async context => {
+    await context.sendText(RankMessage);
 }
 
-exports.HandleFollow2 = async context => {
-    await context.sendText(Message1);
+exports.help = async context => {
+    await context.sendText(HelpMessage);
 }
 
 
