@@ -52,7 +52,7 @@ exports.help = async context => {
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
-        kkassistant.nlu('周杰倫', context.session.id)
+        kkassistant.nlu("周杰倫", context.session.id)
             .then(nluResp => {
                 if (nluResp.directives.length > 0) {
                     if(nluResp.directives[0].type == 'AudioPlayer.Play') {
@@ -67,7 +67,7 @@ exports.recommendHandleLineMessage = async context => {
                     throw new Error('KKBOX Assistant NLP Error');
                 }
             })
-            .then(items => new KKBOXMessage(items).toLineMessage())
+            .then(items => new KKBOXMessage(items).testtoLineMessage())
             .then(({ altText, template }) => context.sendImageCarouselTemplate(altText, template))
             .catch(error => {
                 console.error('Error: ', error);
