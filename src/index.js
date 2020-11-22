@@ -3,10 +3,10 @@ const handler = require('./handler')
 exports.App = () => {
     return router([
         text(/^(hi|hello)$/i, handler.HandleFollow),
-        text(/^(rank)$/i, handler.testHandleLineMessage),
+        text(/^(rank)$/i, handler.rank),
         text(/^(help)$/i, handler.help),
-
-         
+        text(/^(recommend)$/i, recommendhandler.rank),
+        
 
 
         line.message(handler.HandleLineMessage),
