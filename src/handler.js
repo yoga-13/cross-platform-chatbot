@@ -1,3 +1,4 @@
+var test;
 const KKBOXMessage = require('./message/KKBOXMessage');
 const kkbox = global.kkbox;
 const kkassistant = global.kkassistant
@@ -52,6 +53,7 @@ exports.help = async context => {
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
+        test=1;
         kkassistant.nlu("周杰倫", context.session.id)
             .then(nluResp => {
                 if (nluResp.directives.length > 0) {
