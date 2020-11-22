@@ -85,9 +85,9 @@ module.exports = class KKBOXMessage extends Message {
                     action: {
                         type: 'uri',
                         label: `${el.name}`.slice(0, 12),
-                        uri: `https://kma.kkbox.com/charts/weekly/newrelease?terr=tw&lang=tc#`
+                      
 
-                     /*   uri: `https://widget.kkbox.com/v1/?id=${el.id}&type=song&terr=TW&lang=TW` */
+                      uri: `https://widget.kkbox.com/v1/?id=${el.id}&type=song&terr=TW&lang=TW` 
                     }
                 }
             });

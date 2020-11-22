@@ -1,5 +1,6 @@
 const { router, text, line, messenger } = require('bottender/router');
 const handler = require('./handler')
+var test;
 exports.App = () => {
     return router([
         text(/^(hi|hello)$/i, handler.HandleFollow),
