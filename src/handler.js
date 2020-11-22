@@ -12,7 +12,7 @@ const RankMessage = 'https://kma.kkbox.com/charts/?terr=tw&lang=tc ';
 const HelpMessage = '-----------幫助-----------\n'+
                     '輸入help顯示幫助\n'+
                     '輸入rank顯示排名\n'+
-                    '--------------------------';
+                    '------------------------------';
 
 exports.HandleLineMessage = async context => {
     if (context.event.isText) {
