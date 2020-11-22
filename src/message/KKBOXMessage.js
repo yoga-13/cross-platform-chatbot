@@ -48,7 +48,7 @@ module.exports = class KKBOXMessage extends Message {
                 }
             });
            
-                await context.sendText(testMessage);
+         
            
 
             return { altText: '不付費只能聽30秒', template };
