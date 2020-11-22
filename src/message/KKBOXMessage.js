@@ -51,7 +51,7 @@ module.exports = class KKBOXMessage extends Message {
                 });
                 return { altText: '只能聽30秒', template };
             }
-    }
+    
         else if (this.data.type == 'Event.Metadata') {
             let template = this.data.events.slice(0, 10).map(el => {
                 var url = encodeURI(el.url);
