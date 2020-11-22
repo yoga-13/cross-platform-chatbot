@@ -1,10 +1,6 @@
 const KKBOXMessage = require('./message/KKBOXMessage');
 const kkbox = global.kkbox;
 const kkassistant = global.kkassistant
-var x;
-let sgl = "周杰倫";
-let sg2 = "幫助";
-let sg3 = "上帝";
 
 const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 開源程式碼打造\n\n' +
     '您可以問我\n' +
@@ -13,9 +9,11 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
     '影音內容：「查詢影片進擊的巨人」；「查詢日劇半澤直樹」\n' +
     '輸入help顯示功能';
 const RankMessage = 'https://kma.kkbox.com/charts/?terr=tw&lang=tc ';
+const RecentMessage = 'https://kma.kkbox.com/charts/weekly/newrelease?terr=tw&lang=tc';
 const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
                     '輸入recommend顯示周杰倫的歌\n'+
+                    '輸入recent顯示最近大家聽的歌的歌\n'+
                     '輸入rank顯示排名';
 
 exports.HandleLineMessage = async context => {
@@ -49,6 +47,19 @@ exports.rank = async context => {
     await context.sendText(RankMessage);
 }
 
+exports.recent = async context => {
+
+    return {
+        imageUrl: https://cdn1.techbang.com/system/images/545984/original/39b4768c44777977c7d5b3b34932fa45.jpg?1582015012,
+        action: {
+            type: '',
+            label: ,
+                      
+
+            uri: `https://kma.kkbox.com/charts/weekly/newrelease?terr=tw&lang=tc` 
+        }
+
+}
 exports.help = async context => {
     await context.sendText(HelpMessage);
 }
@@ -57,11 +68,7 @@ exports.help = async context => {
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
 
-        x=rand()%2;
-        if (x==0)x=sg1;
-        if (x==1)x=sg2;
-        if (x==2)x=sg3;
-        kkassistant.nlu(x, context.session.id)
+        kkassistant.nlu("周杰倫", context.session.id)
             .then(nluResp => {
                 if (nluResp.directives.length > 0) {
                     if(nluResp.directives[0].type == 'AudioPlayer.Play') {

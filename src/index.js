@@ -6,6 +6,7 @@ exports.App = () => {
         text(/^(hi|hello)$/i, handler.HandleFollow),
         text(/^(rank)$/i, handler.rank),
         text(/^(help)$/i, handler.help),
+        text(/^(recent)$/i, handler.recent),
         text(/^(recommend)$/i, handler.recommendHandleLineMessage),
         
 
