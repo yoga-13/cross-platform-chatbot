@@ -13,7 +13,7 @@ const RecentMessage = 'https://kma.kkbox.com/charts/weekly/newrelease?terr=tw&la
 const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
                     '輸入recommend顯示周杰倫的歌\n'+
-                    '輸入recent顯示最近大家聽的歌的歌\n'+
+                    '輸入recent顯示本周熱門的歌\n'+
                     '輸入rank顯示排名';
 
 exports.HandleLineMessage = async context => {
