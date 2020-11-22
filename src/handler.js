@@ -9,10 +9,9 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
     '影音內容：「查詢影片進擊的巨人」；「查詢日劇半澤直樹」\n' +
     '輸入help顯示幫助';
 const RankMessage = 'https://kma.kkbox.com/charts/?terr=tw&lang=tc ';
-const HelpMessage = '-----------幫助-----------\n'+
-                    '輸入help顯示幫助\n'+
-                    '輸入rank顯示排名\n'+
-                    '------------------------------';
+const HelpMessage = '功能\n'+
+                    '輸入help顯示功能\n'+
+                    '輸入rank顯示排名\n';
 
 exports.HandleLineMessage = async context => {
     if (context.event.isText) {
