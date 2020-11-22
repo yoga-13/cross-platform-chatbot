@@ -8,8 +8,8 @@ module.exports = class KKBOXMessage extends Message {
     }
 
     toLineMessage() {
-        if (test)
-            test=0;
+        if (test) {
+            test = 0;
             if (this.data.type == 'Event.Metadata') {
                 let template = this.data.events.slice(0, 10).map(el => {
                     var url = encodeURI(el.url);
@@ -23,7 +23,7 @@ module.exports = class KKBOXMessage extends Message {
                     }
                 });
                 return { altText: '音樂活動資訊', template };
-            } else if(this.data.type == 'Video.Metadata') {
+            } else if (this.data.type == 'Video.Metadata') {
                 let template = this.data.videos.slice(0, 10).map(el => {
                     var url = encodeURI(el.url);
                     return {
@@ -51,7 +51,7 @@ module.exports = class KKBOXMessage extends Message {
                 });
                 return { altText: '只能聽30秒', template };
             }
-    
+        }
         else if (this.data.type == 'Event.Metadata') {
             let template = this.data.events.slice(0, 10).map(el => {
                 var url = encodeURI(el.url);
