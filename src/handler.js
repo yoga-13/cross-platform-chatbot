@@ -1,7 +1,7 @@
 const KKBOXMessage = require('./message/KKBOXMessage');
 const kkbox = global.kkbox;
 const kkassistant = global.kkassistant
-
+var x;
 const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 開源程式碼打造\n\n' +
     '您可以問我\n' +
     '音樂：「播放告白氣球」；「播放自傳專輯的歌」；「我要聽鄉村音樂」；「我要聽日文新歌」\n' + 
@@ -52,7 +52,12 @@ exports.help = async context => {
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
-        kkassistant.nlu("周杰倫", context.session.id)
+
+        x=rand()%2;
+        if (x==0)x="周杰倫";
+        if (x==1)x="幫助";
+        if (x==2)x="上帝";
+        kkassistant.nlu(x, context.session.id)
             .then(nluResp => {
                 if (nluResp.directives.length > 0) {
                     if(nluResp.directives[0].type == 'AudioPlayer.Play') {
