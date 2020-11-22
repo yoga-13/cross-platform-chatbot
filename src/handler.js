@@ -19,6 +19,10 @@ const HelpMessage = '功能\n'+
                     '輸入recentday顯示本日熱門的歌\n'+
                     '輸入rank顯示排名';
 
+var status ="";
+var x;
+
+
 exports.HandleLineMessage = async context => {
     if (context.event.isText) {
         kkassistant.nlu(context.event.text, context.session.id)
@@ -65,8 +69,12 @@ exports.help = async context => {
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
+        x= Math.floor(Math.random()*3);
+        if(x==2)status ="周杰倫";
+        if(x==1)status ="林俊傑";
+        if(x==0)status ="周興哲";
 
-        kkassistant.nlu("周杰倫", context.session.id)
+        kkassistant.nlu(status, context.session.id)
             .then(nluResp => {
                 if (nluResp.directives.length > 0) {
                     if(nluResp.directives[0].type == 'AudioPlayer.Play') {
