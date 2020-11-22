@@ -48,18 +48,9 @@ exports.rank = async context => {
 }
 
 exports.recent = async context => {
+    await context.sendText(RecentMessage);
+    
 
-    return {
-        imageUrl: https://cdn1.techbang.com/system/images/545984/original/39b4768c44777977c7d5b3b34932fa45.jpg?1582015012,
-        action: {
-            type: '',
-            label: ,
-                      
-
-            uri: `https://kma.kkbox.com/charts/weekly/newrelease?terr=tw&lang=tc` 
-        }
-
-}
 exports.help = async context => {
     await context.sendText(HelpMessage);
 }
