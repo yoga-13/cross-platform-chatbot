@@ -1,3 +1,4 @@
+var test1311 = global.test1311;
 const Message = require('./Message')
 
 module.exports = class KKBOXMessage extends Message {
@@ -48,11 +49,12 @@ module.exports = class KKBOXMessage extends Message {
                     }
                 });
                 return { altText: '只能聽30秒', template };
+
             }
         }
 
 
-        if (this.data.type == 'Event.Metadata') {
+        else if (this.data.type == 'Event.Metadata') {
             let template = this.data.events.slice(0, 10).map(el => {
                 var url = encodeURI(el.url);
                 return {
