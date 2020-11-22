@@ -1,4 +1,4 @@
-var test1311;
+var test1311=0;
 const KKBOXMessage = require('./message/KKBOXMessage');
 const kkbox = global.kkbox;
 const kkassistant = global.kkassistant

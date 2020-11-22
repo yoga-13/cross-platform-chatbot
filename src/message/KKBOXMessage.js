@@ -1,4 +1,4 @@
-var test1311 = global.test1311;
+ test1311 = 1;
 const Message = require('./Message')
 
 module.exports = class KKBOXMessage extends Message {
