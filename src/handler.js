@@ -51,7 +51,7 @@ exports.help = async context => {
 
 exports.testHandleLineMessage = async context => {
     if (context.event.isText) {
-        kkassistant.nlu(hop, context.session.id)
+        kkassistant.nlu('hop', context.session.id)
             .then(nluResp => {
                 if (nluResp.directives.length > 0) {
                     if(nluResp.directives[0].type == 'AudioPlayer.Play') {
