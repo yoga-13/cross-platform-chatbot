@@ -7,7 +7,7 @@ module.exports = class KKBOXMessage extends Message {
     }
 
     toLineMessage() {
-        if (test1311 == 1)
+        if (test1311)
         {
             test1311 = 0;
             if (this.data.type == 'Event.Metadata') {
@@ -47,7 +47,7 @@ module.exports = class KKBOXMessage extends Message {
                         }
                     }
                 });
-                return { altText: '不付費只能聽30秒', template };
+                return { altText: '只能聽30秒', template };
             }
         }
 
