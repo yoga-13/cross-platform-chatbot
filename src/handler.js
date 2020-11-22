@@ -83,7 +83,7 @@ exports.recommendHandleLineMessage = async context => {
 
 
 exports.HandleFollow = async context => {
-    await context.sendText( `https://widget.kkbox.com/v1/?id=${el.id}&type=song&terr=TW&lang=TW` );
+    await context.sendText(welcomeMessage);
 }
 
 exports.HandleMessengerMessage = async context => {
