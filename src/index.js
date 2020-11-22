@@ -6,6 +6,10 @@ exports.App = () => {
         text(/^(rank)$/i, handler.rank),
         text(/^(help)$/i, handler.help),
 
+        text(/^(rankx)$/i, handler.HandleLineMessage),
+        
+
+
         line.message(handler.HandleLineMessage),
         line.follow(handler.HandleFollow),
 
