@@ -9,11 +9,14 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
     '影音內容：「查詢影片進擊的巨人」；「查詢日劇半澤直樹」\n' +
     '輸入help顯示功能';
 const RankMessage = 'https://kma.kkbox.com/charts/yearly/newrelease?lang=tc&terr=tw';
-const RecentMessage = 'https://kma.kkbox.com/charts/weekly/newrelease?terr=tw&lang=tc';
+const RecentWeekMessage = 'https://kma.kkbox.com/charts/weekly/newrelease?terr=tw&lang=tc';
+const RecentDayMessage = 'https://kma.kkbox.com/charts/daily/newrelease?terr=tw&lang=tc';
+
 const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
                     '輸入recommend顯示周杰倫的歌\n'+
-                    '輸入recent顯示本周熱門的歌\n'+
+                    '輸入recentweek顯示本周熱門的歌\n'+
+                    '輸入recentday顯示本日熱門的歌\n'+
                     '輸入rank顯示排名';
 
 exports.HandleLineMessage = async context => {
@@ -47,8 +50,12 @@ exports.rank = async context => {
     await context.sendText(RankMessage);
 }
 
-exports.recent = async context => {
-    await context.sendText(RecentMessage);
+exports.recentweek = async context => {
+    await context.sendText(RecentWeekMessage);
+}
+
+exports.recentday = async context => {
+    await context.sendText(RecentDayMessage);
 }
 
 exports.help = async context => {
