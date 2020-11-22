@@ -1,4 +1,4 @@
-var test;
+const Message = require('./Message')
 const KKBOXMessage = require('./message/KKBOXMessage');
 const kkbox = global.kkbox;
 const kkassistant = global.kkassistant
@@ -53,7 +53,6 @@ exports.help = async context => {
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
-        test=1;
         kkassistant.nlu("周杰倫", context.session.id)
             .then(nluResp => {
                 if (nluResp.directives.length > 0) {
@@ -69,7 +68,7 @@ exports.recommendHandleLineMessage = async context => {
                     throw new Error('KKBOX Assistant NLP Error');
                 }
             })
-            .then(items => new KKBOXMessage(items).toLineMessage())
+            .then(items => new testLineMessage())
             .then(({ altText, template }) => context.sendImageCarouselTemplate(altText, template))
             .catch(error => {
                 console.error('Error: ', error);
@@ -93,3 +92,49 @@ exports.HandleMessengerMessage = async context => {
         await context.sendText(`received the text message: ${context.event.text}`);
     }
 }
+
+
+
+testtoLineMessage() {
+    if (this.data.type == 'Event.Metadata') {
+        let template = this.data.events.slice(0, 10).map(el => {
+            var url = encodeURI(el.url);
+            return {
+                imageUrl: 'https://i.kfs.io/muser/global/131527099v9/cropresize/600x600.jpg',
+                action: {
+                    type: 'uri',
+                    uri: (el.url == '') ? 'https://kktix.com/' : `${url}`,
+                    label: `${el.title}`.slice(0, 12),
+                }
+            }
+        });
+        return { altText: '音樂活動資訊', template };
+        } else if(this.data.type == 'Video.Metadata') {
+        let template = this.data.videos.slice(0, 10).map(el => {
+            var url = encodeURI(el.url);
+            return {
+            imageUrl: el.cover,
+            action: {
+            type: 'uri',
+            uri: `${url}`,
+                label: `${el.title}`.slice(0, 12),
+            }
+            }
+        });
+            return { altText: 'KKTV影片資訊', template };
+            } else {  // AudioPlayer.Play
+            let template = this.data.slice(0, 10).map(el => {
+                return {
+                imageUrl: el.album.images[1].url,
+                action: {
+                type: 'uri',
+                label: `${el.name}`.slice(0, 12),
+                      
+
+                    uri: `https://widget.kkbox.com/v1/?id=${el.id}&type=song&terr=TW&lang=TW` 
+                }
+                }
+            });
+            return { altText: '只能聽30秒', template };
+            }
+            }
