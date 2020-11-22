@@ -49,7 +49,7 @@ exports.rank = async context => {
 
 exports.recent = async context => {
     await context.sendText(RecentMessage);
-    
+}
 
 exports.help = async context => {
     await context.sendText(HelpMessage);
