@@ -67,7 +67,7 @@ exports.recommendHandleLineMessage = async context => {
                     throw new Error('KKBOX Assistant NLP Error');
                 }
             })
-            .then(items => new KKBOXMessage(items).testtoLineMessage())
+            .then(items => new KKBOXMessage(items).toLineMessage())
             .then(({ altText, template }) => context.sendImageCarouselTemplate(altText, template))
             .catch(error => {
                 console.error('Error: ', error);
