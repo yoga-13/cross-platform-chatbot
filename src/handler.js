@@ -8,7 +8,7 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
     '音樂活動：「查詢高雄的活動」；「查詢吳卓源的演場會」；「查詢兩廳院的表演」\n' +
     '影音內容：「查詢影片進擊的巨人」；「查詢日劇半澤直樹」\n' +
     '輸入help顯示功能';
-const RankMessage = 'https://kma.kkbox.com/charts/?terr=tw&lang=tc ';
+const RankMessage = 'https://kma.kkbox.com/charts/yearly/newrelease?lang=tc&terr=tw';
 const RecentMessage = 'https://kma.kkbox.com/charts/weekly/newrelease?terr=tw&lang=tc';
 const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
