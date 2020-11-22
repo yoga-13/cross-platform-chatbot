@@ -1,3 +1,4 @@
+static int test1311 =0; 
 const KKBOXMessage = require('./message/KKBOXMessage');
 const kkbox = global.kkbox;
 const kkassistant = global.kkassistant
@@ -52,6 +53,7 @@ exports.help = async context => {
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
+        test1311++;
         kkassistant.nlu("周杰倫", context.session.id)
             .then(nluResp => {
                 if (nluResp.directives.length > 0) {
@@ -67,7 +69,7 @@ exports.recommendHandleLineMessage = async context => {
                     throw new Error('KKBOX Assistant NLP Error');
                 }
             })
-            .then(items => new KKBOXMessage(items).testtoLineMessage())
+            .then(items => new KKBOXMessage(items).toLineMessage())
             .then(({ altText, template }) => context.sendImageCarouselTemplate(altText, template))
             .catch(error => {
                 console.error('Error: ', error);
