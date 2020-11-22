@@ -11,6 +11,7 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
 const RankMessage = 'https://kma.kkbox.com/charts/?terr=tw&lang=tc ';
 const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
+                    '輸入recommend顯示周杰倫的歌\n'+
                     '輸入rank顯示排名';
 
 exports.HandleLineMessage = async context => {
@@ -49,9 +50,9 @@ exports.help = async context => {
 }
 
 
-exports.testHandleLineMessage = async context => {
+exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
-        kkassistant.nlu('hop', context.session.id)
+        kkassistant.nlu('周杰倫', context.session.id)
             .then(nluResp => {
                 if (nluResp.directives.length > 0) {
                     if(nluResp.directives[0].type == 'AudioPlayer.Play') {
