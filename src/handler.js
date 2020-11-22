@@ -14,7 +14,7 @@ const RecentDayMessage = 'https://kma.kkbox.com/charts/daily/newrelease?terr=tw&
 
 const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
-                    '輸入recommend顯示周杰倫的歌\n'+
+                    '輸入recommend推薦隨機歌手的歌\n'+
                     '輸入recentweek顯示本周熱門的歌\n'+
                     '輸入recentday顯示本日熱門的歌\n'+
                     '輸入rank顯示排名';
@@ -69,11 +69,22 @@ exports.help = async context => {
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
-        x= Math.floor(Math.random()*3);
-        if(x==2)status ="周杰倫";
-        if(x==1)status ="林俊傑";
-        if(x==0)status ="周興哲";
+        x= Math.floor(Math.random()*10);
+        switch(x){
+            case 0:status ="周興哲";break;
+            case 1:status ="林俊傑";break;
+            case 2:status ="周杰倫";break;
+            case 3:status ="薛之謙";break;
+            case 4:status ="陳奕迅";break;
+            case 5:status ="華晨宇";break;
+            case 6:status ="周筆暢";break;
+            case 7:status ="田馥甄";break;
+            case 8:status ="李榮浩";break;
+            case 9:status ="張學友";break;
+            default:status ="周杰倫";break;
 
+        }
+ 
         kkassistant.nlu(status, context.session.id)
             .then(nluResp => {
                 if (nluResp.directives.length > 0) {
