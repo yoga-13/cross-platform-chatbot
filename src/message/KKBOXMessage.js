@@ -1,6 +1,6 @@
 
 const Message = require('./Message')
-
+const testMessage = '請付費\n';
 module.exports = class KKBOXMessage extends Message {
     constructor(data, dataType) {
         super(data, dataType)
@@ -47,7 +47,12 @@ module.exports = class KKBOXMessage extends Message {
                     }
                 }
             });
+            async context => {
+                await context.sendText(testMessage);
+            }
+
             return { altText: '不付費只能聽30秒', template };
+
         }
     }
 

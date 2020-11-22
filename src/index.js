@@ -10,7 +10,6 @@ exports.App = () => {
         text(/^(recommend)$/i, handler.recommendHandleLineMessage),
         
 
-
         line.message(handler.HandleLineMessage),
         line.follow(handler.HandleFollow),
 
