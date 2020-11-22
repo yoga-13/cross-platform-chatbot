@@ -1,4 +1,9 @@
 const Message = require('./Message')
+module.exports = class KKBOXMessage extends Message {
+    constructor(data, dataType) {
+        super(data, dataType)
+        this.dataType = dataType
+    }
 const KKBOXMessage = require('./message/KKBOXMessage');
 const kkbox = global.kkbox;
 const kkassistant = global.kkassistant
@@ -109,32 +114,32 @@ testtoLineMessage() {
             }
         });
         return { altText: '音樂活動資訊', template };
-        } else if(this.data.type == 'Video.Metadata') {
+    } else if(this.data.type == 'Video.Metadata') {
         let template = this.data.videos.slice(0, 10).map(el => {
             var url = encodeURI(el.url);
             return {
-            imageUrl: el.cover,
-            action: {
-            type: 'uri',
-            uri: `${url}`,
-                label: `${el.title}`.slice(0, 12),
-            }
+                imageUrl: el.cover,
+                action: {
+                    type: 'uri',
+                    uri: `${url}`,
+                    label: `${el.title}`.slice(0, 12),
+                }
             }
         });
-            return { altText: 'KKTV影片資訊', template };
-            } else {  // AudioPlayer.Play
-            let template = this.data.slice(0, 10).map(el => {
-                return {
+        return { altText: 'KKTV影片資訊', template };
+    } else {  // AudioPlayer.Play
+        let template = this.data.slice(0, 10).map(el => {
+            return {
                 imageUrl: el.album.images[1].url,
                 action: {
-                type: 'uri',
-                label: `${el.name}`.slice(0, 12),
+                    type: 'uri',
+                    label: `${el.name}`.slice(0, 12),
                       
 
                     uri: `https://widget.kkbox.com/v1/?id=${el.id}&type=song&terr=TW&lang=TW` 
                 }
-                }
-            });
-            return { altText: '只能聽30秒', template };
             }
-            }
+        });
+        return { altText: '不付費只能聽30秒', template };
+    }
+}
