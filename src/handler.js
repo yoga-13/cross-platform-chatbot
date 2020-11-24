@@ -13,8 +13,8 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
 const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
                     '輸入recommend推薦隨機歌手的歌\n'+
-                    '輸入recentday顯示本日熱門的歌\n'+
-                    '輸入recentweek顯示本周熱門的歌\n'+
+                    '輸入recentday顯示本日熱門歌\n'+
+                    '輸入recentweek顯示本周熱門歌\n'+
                     '輸入rank顯示今年度總排名';
 
 var status ="";
@@ -105,7 +105,7 @@ exports.help = async context => {
                   imageUrl: '',
                   action: {
                       type: 'message',
-                      label: '點擊輸入help',
+                      label: '顯示功能',
                       text: 'help',
                   }, 
               },
@@ -114,7 +114,7 @@ exports.help = async context => {
                   imageUrl: '',
                   action: {
                       type: 'message',
-                      label: '點擊輸入recommend',
+                      label: '推薦隨機歌手的歌',
                       text: 'recommend',
                   }, 
               },
@@ -123,7 +123,7 @@ exports.help = async context => {
                   imageUrl: '',
                   action: {
                       type: 'message',
-                      label: '點擊輸入recentday',
+                      label: '本日熱門的歌',
                       text: 'recentday',
                   }, 
               },
@@ -132,7 +132,7 @@ exports.help = async context => {
                   imageUrl: '',
                   action: {
                       type: 'message',
-                      label: '點擊輸入recentweek',
+                      label: '本周熱門歌',
                       text: 'recentweek',
                   }, 
               },
@@ -141,7 +141,7 @@ exports.help = async context => {
                   imageUrl: '',
                   action: {
                       type: 'message',
-                      label: '點擊輸入rank',
+                      label: '今年度總排名',
                       text: 'rank',
                   }, 
               },
