@@ -1,13 +1,11 @@
 var yoga1311;
 const Message = require('./Message')
 
+export async function test1311() {
+    var yoga1311=1;
+    }
 
 
-exports.test1311 = async context => {
-    yoga1311=1;
-    if(yoga1311)
-        await  context.sendText(yoga1311);
-}
 
 module.exports = class KKBOXMessage extends Message {
     constructor(data, dataType) {

@@ -1,6 +1,7 @@
 const KKBOXMessage = require('./message/KKBOXMessage');
 const kkbox = global.kkbox;
 const kkassistant = global.kkassistant
+import {test1311} from './message/KKBOXMessage.js'
 
 const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 開源程式碼打造\n\n' +
     '您可以問我\n' +
@@ -69,7 +70,10 @@ exports.help = async context => {
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
-   KKBOXMessage.test1311;
+        
+        test1311().then((yoga1311)=> {
+            yoga1311=1;
+        });
         x= Math.floor(Math.random()*10);
         switch(x){
             case 0:status ="周興哲";break;
