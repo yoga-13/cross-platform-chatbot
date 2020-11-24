@@ -97,8 +97,8 @@ exports.recentday = async context => {
 }
 
 exports.help = async context => {
-    await context.sendText(HelpMessage);
-    quickReply: {
+    await context.sendText(HelpMessage, {
+        quickReply: {
             items: [
               {
                   type: 'action',
@@ -110,9 +110,9 @@ exports.help = async context => {
                   },
               },
             ],
-            }
+        }
+    });
 }
-
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
