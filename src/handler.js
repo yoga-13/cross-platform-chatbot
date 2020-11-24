@@ -105,24 +105,58 @@ exports.help = async context => {
                   imageUrl: '',
                   action: {
                       type: 'message',
-                      label: 'help',
+                      label: '點擊輸入help',
                       text: 'help',
-                  },
-                  action: {
-                      type: 'message',
-                      label: 'rank',
-                      text: 'rank',
-                  },
-                  action: {
-                      type: 'message',
-                      label: '1',
-                      text: '2',
-                  },
+                  }, 
               },
+              {
+                  type: 'action',
+                  imageUrl: '',
+                  action: {
+                      type: 'message',
+                      label: '點擊輸入recommend',
+                      text: 'recommend',
+                  }, 
+              },
+              {
+                  type: 'action',
+                  imageUrl: '',
+                  action: {
+                      type: 'message',
+                      label: '點擊輸入recentday',
+                      text: 'recentday',
+                  }, 
+              },
+              {
+                  type: 'action',
+                  imageUrl: '',
+                  action: {
+                      type: 'message',
+                      label: '點擊輸入recentweek',
+                      text: 'recentweek',
+                  }, 
+              },
+              {
+                  type: 'action',
+                  imageUrl: '',
+                  action: {
+                      type: 'message',
+                      label: '點擊輸入rank',
+                      text: 'rank',
+                  }, 
+              },
+
+
+
 
             ],
         }
-    });
+    }
+    
+    
+    
+    
+    );
 }
 
 exports.recommendHandleLineMessage = async context => {
