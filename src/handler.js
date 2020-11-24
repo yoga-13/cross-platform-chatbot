@@ -102,13 +102,24 @@ exports.help = async context => {
             items: [
               {
                   type: 'action',
-                  imageUrl: 'https://example.com/sushi.png',
+                  imageUrl: '',
                   action: {
                       type: 'message',
-                      label: 'Sushi',
-                      text: 'Sushi',
+                      label: 'help',
+                      text: 'help',
+                  },
+                  action: {
+                      type: 'message',
+                      label: 'rank',
+                      text: 'rank',
+                  },
+                  action: {
+                      type: 'message',
+                      label: '1',
+                      text: '2',
                   },
               },
+
             ],
         }
     });
