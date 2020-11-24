@@ -4,9 +4,9 @@ const Message = require('./Message')
 
 
 exports.test1311 = async context => {
-    await yoga1311=1;
+    yoga1311=1;
     if(yoga1311)
-     context.sendText(yoga1311);
+        await  context.sendText(yoga1311);
 }
 
 module.exports = class KKBOXMessage extends Message {
