@@ -20,7 +20,7 @@ const HelpMessage = '功能\n'+
                     '輸入rank顯示排名';
 
 var status ="";
-var x,y;
+var x;
 
 
 exports.HandleLineMessage = async context => {
@@ -69,8 +69,6 @@ exports.help = async context => {
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
-        x=context.event.text;
-        context.event.text="037";
         x= Math.floor(Math.random()*10);
         switch(x){
             case 0:status ="周興哲";break;
@@ -108,7 +106,6 @@ exports.recommendHandleLineMessage = async context => {
             .catch(error => {
                 console.error('Error: ', error);
             });
-        context.event.text=x;
     }
 }
 
