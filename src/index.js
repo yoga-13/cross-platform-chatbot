@@ -1,5 +1,6 @@
 const { router, text, line, messenger } = require('bottender/router');
 const handler = require('./handler')
+const KKBOXMessage = require('./message/KKBOXMessage');
 
 exports.App = () => {
     return router([
@@ -9,6 +10,9 @@ exports.App = () => {
         text(/^(recentweek)$/i, handler.recentweek),
         text(/^(recentday)$/i, handler.recentday),
         text(/^(recommend)$/i, handler.recommendHandleLineMessage),
+
+        text(/^(test)$/i, KKBOXMessage.test1311),
+
         
 
         line.message(handler.HandleLineMessage),

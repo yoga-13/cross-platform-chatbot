@@ -69,7 +69,7 @@ exports.help = async context => {
 
 exports.recommendHandleLineMessage = async context => {
     if (context.event.isText) {
-   await KKBOXMessage.test1311;
+   KKBOXMessage.test1311;
         x= Math.floor(Math.random()*10);
         switch(x){
             case 0:status ="周興哲";break;
