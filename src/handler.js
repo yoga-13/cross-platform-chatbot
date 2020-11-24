@@ -51,7 +51,23 @@ exports.HandleLineMessage = async context => {
 
 
 exports.rank = async context => {
-    await context.sendText(RankMessage);
+    context.sendButtonsTemplate('this is a buttons template', {
+        thumbnailImageUrl: 'https://kma.kkbox.com/charts/assets/images/logo.svg?id=e41750806e78fa673556',
+        title: '年度單曲累積榜',
+        text: '想知道最近火龍的歌曲有哪些嗎?快來 KKBOX 風雲榜。',
+        actions: [
+          {
+              type: 'postback',
+              label: 'Add to cart',
+              data: 'action=add&itemid=123',
+          },
+          {
+              type: 'uri',
+              label: '點擊查看',
+              uri: 'https://kma.kkbox.com/charts/yearly/newrelease?lang=tc&terr=tw',
+          },
+        ],
+    });
 }
 
 exports.recentweek = async context => {
@@ -63,50 +79,7 @@ exports.recentday = async context => {
 }
 
 exports.help = async context => {
-
-
-    await context.sendCarouselTemplate('this is a carousel template', [
-  {
-      thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
-      title: 'this is menu',
-      text: 'description',
-      actions: [
-        {
-            type: 'postback',
-            label: 'Add to cart',
-            data: 'action=add&itemid=111',
-        },
-        {
-            type: 'uri',
-            label: 'View detail',
-            uri: 'http://example.com/page/111',
-        },
-      ],
-  },
-  {
-      thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
-      title: 'this is menu',
-      text: 'description',
-      actions: [
-        {
-            type: 'postback',
-            label: 'Add to cart',
-            data: 'action=add&itemid=222',
-        },
-        {
-            type: 'uri',
-            label: 'View detail',
-            uri: 'http://example.com/page/222',
-        },
-      ],
-  },
-    ]);
-
-
-
-
-
-   /*await context.sendText(HelpMessage);*/
+   await context.sendText(HelpMessage);
 }
 
 
