@@ -1,14 +1,5 @@
-var yoga1311;
-
-
-function myFunction() {
-    return yoga1311=1;
-}
-
 
 const Message = require('./Message')
-
-
 
 
 module.exports = class KKBOXMessage extends Message {
