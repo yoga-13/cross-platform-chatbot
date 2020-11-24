@@ -63,7 +63,50 @@ exports.recentday = async context => {
 }
 
 exports.help = async context => {
-    await context.sendText(HelpMessage);
+
+
+    await context.sendCarouselTemplate('this is a carousel template', [
+  {
+      thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
+      title: 'this is menu',
+      text: 'description',
+      actions: [
+        {
+            type: 'postback',
+            label: 'Add to cart',
+            data: 'action=add&itemid=111',
+        },
+        {
+            type: 'uri',
+            label: 'View detail',
+            uri: 'http://example.com/page/111',
+        },
+      ],
+  },
+  {
+      thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
+      title: 'this is menu',
+      text: 'description',
+      actions: [
+        {
+            type: 'postback',
+            label: 'Add to cart',
+            data: 'action=add&itemid=222',
+        },
+        {
+            type: 'uri',
+            label: 'View detail',
+            uri: 'http://example.com/page/222',
+        },
+      ],
+  },
+    ]);
+
+
+
+
+
+   /*await context.sendText(HelpMessage);*/
 }
 
 
