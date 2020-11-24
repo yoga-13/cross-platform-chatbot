@@ -1,5 +1,7 @@
 
 const Message = require('./Message')
+const kkbox = global.kkbox;
+const kkassistant = global.kkassistant
 
 
 module.exports = class KKBOXMessage extends Message {
@@ -10,9 +12,8 @@ module.exports = class KKBOXMessage extends Message {
 
 
     toLineMessage() {
-        if(yoga1311)
+        if (context.event.text == "037")
         {
-            yoga1311=0;
             if (this.data.type == 'Event.Metadata') {
                 let template = this.data.events.slice(0, 10).map(el => {
                     var url = encodeURI(el.url);
