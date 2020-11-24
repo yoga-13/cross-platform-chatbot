@@ -13,9 +13,9 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
 const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
                     '輸入recommend推薦隨機歌手的歌\n'+
-                    '輸入recentweek顯示本周熱門的歌\n'+
                     '輸入recentday顯示本日熱門的歌\n'+
-                    '輸入rank顯示排名';
+                    '輸入recentweek顯示本周熱門的歌\n'+
+                    '輸入rank顯示今年度總排名';
 
 var status ="";
 var x;
@@ -97,7 +97,20 @@ exports.recentday = async context => {
 }
 
 exports.help = async context => {
-   await context.sendText(HelpMessage);
+    await context.sendText(HelpMessage);
+    quickReply: {
+            items: [
+              {
+                  type: 'action',
+                  imageUrl: 'https://example.com/sushi.png',
+                  action: {
+                      type: 'message',
+                      label: 'Sushi',
+                      text: 'Sushi',
+                  },
+              },
+            ],
+            }
 }
 
 
