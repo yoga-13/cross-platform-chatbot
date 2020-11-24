@@ -1,9 +1,13 @@
 var yoga1311;
+
+
+function myFunction() {
+    return yoga1311=1;
+}
+
+
 const Message = require('./Message')
 
-export async function test1311() {
-    var yoga1311=1;
-    }
 
 
 
@@ -12,6 +16,7 @@ module.exports = class KKBOXMessage extends Message {
         super(data, dataType)
         this.dataType = dataType
     }
+
 
     toLineMessage() {
         if(yoga1311)
