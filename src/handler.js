@@ -115,7 +115,8 @@ exports.recommendHandleLineMessage = async context => {
 
 
 exports.HandleFollow = async context => {
-    await context.sendText(welcomeMessage);
+    await
+    context.sendText(welcomeMessage);
 }
 
 exports.HandleMessengerMessage = async context => {
