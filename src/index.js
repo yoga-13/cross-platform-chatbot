@@ -9,6 +9,7 @@ exports.App = () => {
         text(/^(help)$/i, handler.help),
         text(/^(recentweek)$/i, handler.recentweek),
         text(/^(recentday)$/i, handler.recentday),
+        text(/^(recommender)$/i, handler.recommenderHandleLineMessage),
         text(/^(recommend)$/i, handler.recommendHandleLineMessage),
 
 

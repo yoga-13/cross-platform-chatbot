@@ -12,7 +12,8 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
 
 const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
-                    '輸入recommend推薦隨機歌手的歌\n'+
+                    '輸入recommend隨機推薦歌\n'+
+                    '輸入recommender隨機推薦某歌手的歌\n'+
                     '輸入recentday顯示本日熱門歌\n'+
                     '輸入recentweek顯示本周熱門歌\n'+
                     '輸入rank顯示今年度總排名';
@@ -114,8 +115,17 @@ exports.help = async context => {
                   imageUrl: '',
                   action: {
                       type: 'message',
-                      label: '推薦隨機歌手的歌',
+                      label: '隨機推薦歌',
                       text: 'recommend',
+                  }, 
+              },
+              {
+                  type: 'action',
+                  imageUrl: '',
+                  action: {
+                      type: 'message',
+                      label: '隨機推薦某歌手的歌',
+                      text: 'recommender',
                   }, 
               },
               {
@@ -159,7 +169,7 @@ exports.help = async context => {
     );
 }
 
-exports.recommendHandleLineMessage = async context => {
+exports.recommenderHandleLineMessage = async context => {
     if (context.event.isText) {
         x= Math.floor(Math.random()*10);
         switch(x){
@@ -202,7 +212,32 @@ exports.recommendHandleLineMessage = async context => {
 }
 
 
-
+exports.recommendHandleLineMessage = async context => {
+    if (context.event.isText) {
+ 
+        kkassistant.nlu("風雲榜", context.session.id)
+            .then(nluResp => {
+                if (nluResp.directives.length > 0) {
+                    if(nluResp.directives[0].type == 'AudioPlayer.Play') {
+                        return kkbox.fetchTracks(nluResp.directives[0].playlist.data);
+                    } else { // Event.Metadata & Video.Metadata
+                        return nluResp.directives[0];
+                    }
+                }
+                else {
+                    console.error('Error: ', nluResp);
+                    context.sendText(nluResp.outputSpeech.text);
+                    throw new Error('KKBOX Assistant NLP Error');
+                }
+            })
+             
+            .then(items => new KKBOXMessage(items).toLineMessage())
+            .then(({ altText, template }) => context.sendImageCarouselTemplate(altText, template))
+            .catch(error => {
+                console.error('Error: ', error);
+            });
+    }
+}
 
 
 
