@@ -56,11 +56,7 @@ exports.rank = async context => {
         title: '年度單曲累積榜',
         text: '想知道最近火龍的歌曲有哪些嗎?快來 KKBOX 風雲榜。',
         actions: [
-          {
-              type: 'postback',
-              label: 'Add to cart',
-              data: 'action=add&itemid=123',
-          },
+
           {
               type: 'uri',
               label: '點擊查看',
