@@ -8,9 +8,7 @@ const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 
     '音樂活動：「查詢高雄的活動」；「查詢吳卓源的演場會」；「查詢兩廳院的表演」\n' +
     '影音內容：「查詢影片進擊的巨人」；「查詢日劇半澤直樹」\n' +
     '輸入help顯示功能';
-const RankMessage = 'https://kma.kkbox.com/charts/yearly/newrelease?lang=tc&terr=tw';
-const RecentWeekMessage = 'https://kma.kkbox.com/charts/weekly/newrelease?terr=tw&lang=tc';
-const RecentDayMessage = 'https://kma.kkbox.com/charts/daily/newrelease?terr=tw&lang=tc';
+
 
 const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
@@ -51,10 +49,10 @@ exports.HandleLineMessage = async context => {
 
 
 exports.rank = async context => {
-    context.sendButtonsTemplate('this is a buttons template', {
+    await context.sendButtonsTemplate('想知道最近火紅的歌曲有哪些嗎?快來 KKBOX 風雲榜。', {
         thumbnailImageUrl: 'https://kma.kkbox.com/charts/assets/images/logo.svg?id=e41750806e78fa673556',
         title: '年度單曲累積榜',
-        text: '想知道最近火龍的歌曲有哪些嗎?快來 KKBOX 風雲榜。',
+        text: '想知道最近火紅的歌曲有哪些嗎?快來 KKBOX 風雲榜。',
         actions: [
 
           {
@@ -67,11 +65,35 @@ exports.rank = async context => {
 }
 
 exports.recentweek = async context => {
-    await context.sendText(RecentWeekMessage);
+    await context.sendButtonsTemplate('想知道最近火紅的歌曲有哪些嗎?快來 KKBOX 風雲榜。', {
+        thumbnailImageUrl: 'https://kma.kkbox.com/charts/assets/images/logo.svg?id=e41750806e78fa673556',
+        title: '本週單曲累積榜',
+        text: '想知道最近火紅的歌曲有哪些嗎?快來 KKBOX 風雲榜。',
+        actions: [
+
+          {
+              type: 'uri',
+              label: '點擊查看',
+              uri: 'https://kma.kkbox.com/charts/weekly/newrelease?terr=tw&lang=tc',
+          },
+        ],
+    });
 }
 
 exports.recentday = async context => {
-    await context.sendText(RecentDayMessage);
+    await context.sendButtonsTemplate('想知道最近火紅的歌曲有哪些嗎?快來 KKBOX 風雲榜。', {
+        thumbnailImageUrl: 'https://kma.kkbox.com/charts/assets/images/logo.svg?id=e41750806e78fa673556',
+        title: '今日單曲累積榜',
+        text: '想知道最近火紅的歌曲有哪些嗎?快來 KKBOX 風雲榜。',
+        actions: [
+
+          {
+              type: 'uri',
+              label: '點擊查看',
+              uri: 'https://kma.kkbox.com/charts/daily/newrelease?terr=tw&lang=tc',
+          },
+        ],
+    });
 }
 
 exports.help = async context => {
