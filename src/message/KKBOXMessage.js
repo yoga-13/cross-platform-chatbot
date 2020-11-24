@@ -1,6 +1,8 @@
 
 const Message = require('./Message')
-const testMessage = '請付費\n';
+
+
+
 module.exports = class KKBOXMessage extends Message {
     constructor(data, dataType) {
         super(data, dataType)
