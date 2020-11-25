@@ -2,7 +2,7 @@ const KKBOXMessage = require('./message/KKBOXMessage');
 const kkbox = global.kkbox;
 const kkassistant = global.kkassistant
 
-const welcomeMessage = 'Hi~ 本 Bot 是用 https://rebrand.ly/ic-chatbot-github 開源程式碼打造\n\n' +
+const welcomeMessage = 'Hi~ 本 Bot 是用 https://github.com/yoga-13/cross-platform-chatbot 開源程式碼打造\n\n' +
     '您可以問我\n' +
     '音樂：「播放告白氣球」；「播放自傳專輯的歌」；「我要聽鄉村音樂」；「我要聽日文新歌」\n' + 
     '音樂活動：「查詢高雄的活動」；「查詢吳卓源的演場會」；「查詢兩廳院的表演」\n' +
