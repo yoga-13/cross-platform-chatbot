@@ -14,9 +14,9 @@ const HelpMessage = '功能\n'+
                     '輸入help顯示功能\n'+
                     '輸入recentday顯示本日熱門歌\n'+
                     '輸入recentweek顯示本周熱門歌\n'+
-		    '輸入lightmusic顯示輕鬆的音樂\n'+
+		            '輸入lightmusic顯示輕鬆的音樂\n'+
                     '輸入rank顯示今年度總排名';
-
+ 
 var status ="";
 var x;
 
